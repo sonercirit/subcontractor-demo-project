@@ -9,3 +9,11 @@ services:
       POSTGRES_PASSWORD: sdp-db-pass
       POSTGRES_USER: sdp-user
       POSTGRES_DB: subcontractor-demo-project
+  openapi:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "7777:8080"
+    environment:
+      SWAGGER_JSON: /openapi.yaml
+    volumes:
+      - ./openapi.yaml:/openapi.yaml

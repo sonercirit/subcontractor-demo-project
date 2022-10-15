@@ -9,6 +9,7 @@
 - Config management via dotenv.
 - Dependencies via docker-compose
 - ORM via Prisma. Includes migrations and seeders.
+- Testable via OpenAPI.
 
 ### Migrations and seeders
 

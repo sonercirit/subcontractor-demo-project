@@ -1,0 +1,19 @@
+openapi: "3.0.3"
+info:
+  title: "Subcontractor Demo Project"
+  version: 0.0.1
+servers:
+  - url: http://localhost:7822
+paths:
+  /subcontractors:
+    get:
+      summary: Gets all subscontractors
+      responses:
+        200:
+          description: success
+  /projects:
+    get:
+      summary: Gets all projects
+      responses:
+        200:
+          description: success
