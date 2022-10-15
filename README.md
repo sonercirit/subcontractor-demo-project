@@ -9,3 +9,13 @@
 - Config management via dotenv.
 - Dependencies via docker-compose
 - ORM via Prisma. Includes migrations and seeders.
+
+### Migrations and seeders
+
+#### Create migrations
+
+Make your changes in `prisma/schema.prisma` and run the following command to generate the migration.
+
+```shell
+npx prisma migrate dev --name "<example>"
+```
