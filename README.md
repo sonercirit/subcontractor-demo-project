@@ -8,3 +8,4 @@
 - Enforce rules and code style with pre-commit hooks. Uses husky and lint-staged.
 - Config management via dotenv.
 - Dependencies via docker-compose
+- ORM via Prisma. Includes migrations and seeders.
