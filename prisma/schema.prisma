@@ -21,5 +21,6 @@ model Subcontractor {
   avatar String
   city String
   state String
+  address String
   zipcode String
 }
