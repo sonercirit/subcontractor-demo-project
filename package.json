@@ -1,9 +1,11 @@
 {
   "name": "subcontractor-demo-project",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "node src/app.js"
   },
   "license": "MIT",
   "dependencies": {
