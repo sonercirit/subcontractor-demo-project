@@ -7,3 +7,4 @@
 - Runs airbnb (strict) rules with eslint.
 - Enforce rules and code style with pre-commit hooks. Uses husky and lint-staged.
 - Config management via dotenv.
+- Dependencies via docker-compose
