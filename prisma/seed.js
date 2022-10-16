@@ -6,6 +6,7 @@ async function main() {
   const subcontractors = await prisma.subcontractor.createMany({
     data: [
       {
+        id: "5d46b0c7-f754-471a-90b4-a013c45297d0",
         name: "Hagenes and Sons",
         avatar:
           "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1148.jpg",
@@ -18,6 +19,7 @@ async function main() {
         city: "Johnson City",
       },
       {
+        id: "420e13ac-3f43-4822-859e-b8e5f0257784",
         name: "Lindgren - Volkman",
         avatar:
           "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1154.jpg",
