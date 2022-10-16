@@ -6,7 +6,9 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const projects = await prisma.project.findMany();
+    const projects = await prisma.project.findMany({
+      include: { subcontractors: true },
+    });
     res.json(projects);
   } catch (e) {
     handleError(e, res);
