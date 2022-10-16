@@ -36,4 +36,19 @@ model Project {
   state String
   zipcode String
   subcontractors Subcontractor[]
+  draws Draw[]
+}
+
+model Draw {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status Status @default(ACTIVE)
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId String
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
 }
