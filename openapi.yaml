@@ -124,3 +124,27 @@ paths:
       responses:
         200:
           description: success
+  /payrolls/{id}:
+    patch:
+      tags:
+        - payrolls
+      summary: Update a payroll
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: e15636fa-2913-4e80-bfb8-d399366ac2e6
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: COMPLIANCE_UPLOADED
+      responses:
+        200:
+          description: success
