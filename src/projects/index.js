@@ -7,9 +7,21 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const projects = await prisma.project.findMany({
-      include: { subcontractors: true, draws: true },
+      include: { subcontractors: true, draws: { include: { payrolls: true } } },
     });
     res.json(projects);
+  } catch (e) {
+    handleError(e, res);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const project = await prisma.project.findUnique({
+      where: { id: req.params.id },
+      include: { subcontractors: true, draws: { include: { payrolls: true } } },
+    });
+    res.json(project);
   } catch (e) {
     handleError(e, res);
   }

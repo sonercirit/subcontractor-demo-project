@@ -58,6 +58,21 @@ paths:
       responses:
         200:
           description: success
+  /projects/{id}:
+    get:
+      tags:
+        - projects
+      summary: Get a single project
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 8d721ed9-ddc0-42d8-8667-d5896d509a66
+      responses:
+        200:
+          description: success
   /draws:
     get:
       tags:
