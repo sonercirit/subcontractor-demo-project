@@ -23,6 +23,10 @@ Swagger is at http://localhost:7777
 
 Swagger includes examples as well as documentation. Raw swagger file is at `./openapi.yaml`
 
+```shell
+docker compose up -d
+```
+
 ### Migrations and seeders
 
 Make your changes in `prisma/schema.prisma` and run the following command to generate the migration.
