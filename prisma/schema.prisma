@@ -11,33 +11,33 @@ datasource db {
 }
 
 model Subcontractor {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name String
-  email String
-  phone String
+  id         String    @id @default(uuid())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  name       String
+  email      String
+  phone      String
   speciality String
-  avatar String
-  city String
-  state String
-  address String
-  zipcode String
-  projects Project[]
-  payrolls Payroll[]
+  avatar     String
+  city       String
+  state      String
+  address    String
+  zipcode    String
+  projects   Project[]
+  payrolls   Payroll[]
 }
 
 model Project {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name String
-  address String
-  city String
-  state String
-  zipcode String
+  id             String          @id @default(uuid())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  name           String
+  address        String
+  city           String
+  state          String
+  zipcode        String
   subcontractors Subcontractor[]
-  draws Draw[]
+  draws          Draw[]
 }
 
 enum Status {
@@ -46,13 +46,13 @@ enum Status {
 }
 
 model Draw {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  status Status @default(ACTIVE)
-  project Project @relation(fields: [projectId], references: [id])
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Status    @default(ACTIVE)
+  project   Project   @relation(fields: [projectId], references: [id])
   projectId String
-  payrolls Payroll[]
+  payrolls  Payroll[]
 }
 
 enum PayrollStatus {
@@ -66,12 +66,12 @@ enum PayrollStatus {
 }
 
 model Payroll {
-  id String @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  status PayrollStatus @default(CREATED)
-  draw Draw @relation(fields: [drawId], references: [id])
-  drawId String
-  subcontractor Subcontractor @relation(fields: [subcontractorId], references: [id])
+  id              String        @id @default(uuid())
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  status          PayrollStatus @default(CREATED)
+  draw            Draw          @relation(fields: [drawId], references: [id])
+  drawId          String
+  subcontractor   Subcontractor @relation(fields: [subcontractorId], references: [id])
   subcontractorId String
 }
