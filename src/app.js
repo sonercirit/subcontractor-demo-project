@@ -10,15 +10,19 @@ config();
 const app = express();
 const port = process.env.APP_PORT;
 
+// allow cors
 app.use(cors());
+
+// parse application/json
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.use("/projects", projects);
+app.use("/subcontractors", subcontractors);
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
-
-app.use("/projects", projects);
-app.use("/subcontractors", subcontractors);

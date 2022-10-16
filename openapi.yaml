@@ -17,3 +17,38 @@ paths:
       responses:
         200:
           description: success
+    post:
+      summary: Create a project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subcontractors:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    [
+                      5d46b0c7-f754-471a-90b4-a013c45297d0,
+                      420e13ac-3f43-4822-859e-b8e5f0257784,
+                    ]
+                name:
+                  type: string
+                  example: Test project
+                address:
+                  type: string
+                  example: 1639 Lamberts Branch Road
+                city:
+                  type: string
+                  example: Amelia
+                state:
+                  type: string
+                  example: Ohio
+                zipcode:
+                  type: string
+                  example: 45102
+      responses:
+        200:
+          description: success
