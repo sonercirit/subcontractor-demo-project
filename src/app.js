@@ -4,6 +4,7 @@ import cors from "cors";
 import projects from "./projects/index.js";
 import subcontractors from "./subcontractors/index.js";
 import draws from "./draws/index.js";
+import payrolls from "./payrolls/index.js";
 
 // init dotenv with defaults
 config();
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 app.use("/projects", projects);
 app.use("/subcontractors", subcontractors);
 app.use("/draws", draws);
+app.use("/payrolls", payrolls);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);

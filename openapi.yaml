@@ -7,17 +7,23 @@ servers:
 paths:
   /subcontractors:
     get:
+      tags:
+        - subcontractors
       summary: Gets all subscontractors
       responses:
         200:
           description: success
   /projects:
     get:
+      tags:
+        - projects
       summary: Gets all projects
       responses:
         200:
           description: success
     post:
+      tags:
+        - projects
       summary: Create a project
       requestBody:
         content:
@@ -49,6 +55,57 @@ paths:
                 zipcode:
                   type: string
                   example: 45102
+      responses:
+        200:
+          description: success
+  /draws:
+    get:
+      tags:
+        - draws
+      summary: Get all tags
+      responses:
+        200:
+          description: success
+    post:
+      tags:
+        - draws
+      summary: Create a draw
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                project:
+                  type: string
+                  example: 8d721ed9-ddc0-42d8-8667-d5896d509a66
+      responses:
+        200:
+          description: success
+  /payrolls:
+    get:
+      tags:
+        - payrolls
+      summary: Get all payrolls
+      responses:
+        200:
+          description: success
+    post:
+      tags:
+        - payrolls
+      summary: Create a payroll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                draw:
+                  type: string
+                  example: ad687297-d3a5-4ff4-bf37-ffe43b011352
+                subcontractor:
+                  type: string
+                  example: 5d46b0c7-f754-471a-90b4-a013c45297d0
       responses:
         200:
           description: success
