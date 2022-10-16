@@ -24,6 +24,7 @@ model Subcontractor {
   address String
   zipcode String
   projects Project[]
+  payrolls Payroll[]
 }
 
 model Project {
@@ -39,16 +40,38 @@ model Project {
   draws Draw[]
 }
 
+enum Status {
+  ACTIVE
+  INACTIVE
+}
+
 model Draw {
   id String @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   status Status @default(ACTIVE)
-  project   Project @relation(fields: [projectId], references: [id])
+  project Project @relation(fields: [projectId], references: [id])
   projectId String
+  payrolls Payroll[]
 }
 
-enum Status {
-  ACTIVE
-  INACTIVE
+enum PayrollStatus {
+  CREATED
+  COMPLIANCE_UPLOADED
+  SWORN_STATEMENT_UPLOADED
+  DOCUMENT_SIGNED
+  PAYMENT_SENT
+  LIEN_WAIVER_SIGNED
+  COMPLETE
+}
+
+model Payroll {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status PayrollStatus @default(CREATED)
+  draw Draw @relation(fields: [drawId], references: [id])
+  drawId String
+  subcontractor Subcontractor @relation(fields: [subcontractorId], references: [id])
+  subcontractorId String
 }
