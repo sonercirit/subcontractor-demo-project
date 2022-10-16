@@ -1,5 +1,7 @@
 # Subcontractor Demo Project
 
+A demo project for subcontract management using Express, Prisma and OpenAPI/Swagger.
+
 ## Features
 
 - Uses express as its web server.
