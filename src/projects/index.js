@@ -1,11 +1,16 @@
 import express from "express";
 import prisma from "../db.js";
+import handleError from "../error.js";
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const projects = await prisma.project.findMany();
-  res.json(projects);
+  try {
+    const projects = await prisma.project.findMany();
+    res.json(projects);
+  } catch (e) {
+    handleError(e, res);
+  }
 });
 
 router.post("/", async (req, res) => {
@@ -19,8 +24,7 @@ router.post("/", async (req, res) => {
     });
     res.json(project);
   } catch (e) {
-    console.log(e);
-    res.status(500).json({ error: e.message });
+    handleError(e, res);
   }
 });
 
