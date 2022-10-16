@@ -6,10 +6,10 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const projects = await prisma.project.findMany({
-      include: { subcontractors: true, draws: true },
+    const draws = await prisma.draw.findMany({
+      include: { project: true },
     });
-    res.json(projects);
+    res.json(draws);
   } catch (e) {
     handleError(e, res);
   }
@@ -17,14 +17,14 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { subcontractors } = req.body;
-    const project = await prisma.project.create({
+    const { project } = req.body;
+    const draw = await prisma.draw.create({
       data: {
         ...req.body,
-        subcontractors: { connect: subcontractors.map((val) => ({ id: val })) },
+        project: { connect: { id: project } },
       },
     });
-    res.json(project);
+    res.json(draw);
   } catch (e) {
     handleError(e, res);
   }
