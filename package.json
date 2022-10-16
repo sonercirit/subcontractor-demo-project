@@ -7,7 +7,8 @@
     "prepare": "husky install",
     "start": "node src/app.js",
     "migrate": "npx prisma migrate deploy",
-    "seed": "npx prisma db seed"
+    "seed": "npx prisma db seed",
+    "start:migrate": "npm run migrate && npm run seed && npm run start"
   },
   "license": "MIT",
   "dependencies": {
